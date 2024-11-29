@@ -49,5 +49,19 @@ docker rmi <image-id> : Xóa image
 
 ## 2. Quản lý Container
 ### Chạy container
-```bash
-docker run -d -p 8080:80 nginx
+- docker run -d -p 8080:80 nginx
+    + Trong đó: 80 là cổng chạy trong container (server port trong file yaml)
+    + Cổng 8080: sẽ là cổng được dùng ở host 
+
+- docker run -dp 8081:8080 --name spring-container -v "$(pwd):/app" vuvanhoang/spring-docker:v1.0.0 
+    + Khi docker đang run mà có thay đổi thì sẽ tự update vào docker
+
+### Tạo task cho image
+- Docker tag (name-image):latest (name-image):newTag
+
+### Push to Docker Hub
+- docker push vuvanhoang/vnua-test-app:tagname
+
+# Lưu ý khi build docker local
+- Khi sử dụng database thì không thể sử dụng path localhost do localhost khi build trên docker thì nó sẽ không trỏ đến host của máy tính mà nó trỏ đến container của docker, vì vậy cần sửa cấu hình của db về host docker
+vd: spring.datasource.url=jdbc:postgresql://host.docker.internal:5432/your_database
