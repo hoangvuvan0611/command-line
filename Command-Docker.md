@@ -18,16 +18,10 @@ Tạo một bảng để tổ chức các câu lệnh Docker, chia cột thành 
 | Quản lý image      | `docker images`             | Liệt kê các image có trên hệ thống               |
 | Quản lý image      | `docker pull <image-name>`  | Tải image từ Docker Hub                          |
 
-Lợi ích:
-- Có thể dễ dàng tìm kiếm hoặc lọc các câu lệnh theo nhóm.
-- Google Sheets cho phép bạn truy cập từ bất kỳ thiết bị nào.
-
----
-
-## **3. Lưu trong file Text (.txt)**
-Nếu bạn muốn lưu nhanh, có thể sử dụng một file `.txt` đơn giản. Chỉ cần tổ chức các lệnh theo nhóm bằng cách thêm dòng trống giữa các phần.
-
-**Ví dụ: docker-commands.txt**
+# Các cờ quan trọng 
+-d : chạy lệnh ở chế độ nền
+-i : Nó giữ STDIN mở ngay cả khi không được gắn vào
+-e : thiết lập các biến môi trường
 
 ```plaintext
 # Thông tin hệ thống
@@ -41,10 +35,11 @@ docker run -d -p 8080:80 nginx
 docker stop <container-id>
 docker rm <container-id>
 
+
 # Quản lý image
 docker images
 docker pull <image-name>
-docker rmi <image-id>
+docker rmi <image-id> : Xóa image
 
 # Docker Commands Cheat Sheet
 
